@@ -80,8 +80,6 @@ The code must:
 
 ## 💡 Tips from the Process
 
-> Based on internal training material used for this exercise:
-
 - ✅ Write prompts like you’re talking to a colleague
 - ✅ Be specific: source, categories, colors, fonts, expected output
 - ✅ Use examples if needed
