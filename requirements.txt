@@ -1,0 +1,5 @@
+pandas
+folium
+gspread
+oauth2client
+branca
