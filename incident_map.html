@@ -1,0 +1,2021 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_2169d5b104902e9df458a56b8e6f534b {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+    <h3 style="font-family: Arial; color: black; text-align: center; font-weight: bold;">
+    Attacks on Protest and Blockade Participants</h3>
+    
+    <div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+                font-family: Arial; font-size: 13px;">
+        Data collected by <a href="https://www.cins.rs/en/" target="_blank">CINS</a>
+    </div>
+    
+    <div style="position: fixed; bottom: 10px; right: 10px;">
+        <img src="https://www.cins.rs/wp-content/themes/cins-V2/assets/logo.png" style="width: 100px;">
+    </div>
+    
+<div style="position: fixed; bottom: 70px; left: 10px; width: 200px;
+            background-color: white; border:2px solid grey; z-index:9999;
+            font-family: Arial; font-size: 13px; padding: 10px;">
+<b>Legend</b><br>
+<i class="fa fa-tools" style="color:darkred"></i> Bat<br>
+<i class="fa fa-car" style="color:blue"></i> Car<br>
+<i class="fa fa-user-friends" style="color:green"></i> Fight<br>
+<i class="fa fa-hand-rock" style="color:orange"></i> Pushing/Hitting<br>
+<i class="fa fa-question-circle" style="color:gray"></i> Other
+</div>
+    
+            <div class="folium-map" id="map_2169d5b104902e9df458a56b8e6f534b" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_2169d5b104902e9df458a56b8e6f534b = L.map(
+                "map_2169d5b104902e9df458a56b8e6f534b",
+                {
+                    center: [44.90630083999999, 20.2065099],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 7,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_fa54c001c6dfa772d60ed4de16634b71 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_fa54c001c6dfa772d60ed4de16634b71.addTo(map_2169d5b104902e9df458a56b8e6f534b);
+        
+    
+            var marker_cluster_18955fe282a3bf7d904386c0f213341f = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var marker_a6b476aa367c970c674c876012ad25a1 = L.marker(
+                [45.25521736460167, 19.844350891548544],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_5e5c531969adff714147bb1f2fda6b12 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "fa-user-friends",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2dbd3c27646b4d11f33c2e0db9542aa3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_25ba7dda13ae4366549744aa7f10141d = $(`<div id="html_25ba7dda13ae4366549744aa7f10141d" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  01/12/2024<br>         <strong>City:</strong> Novi Sad<br>         <strong>Location:</strong> Freedom Square<br>         <strong>Description:</strong> A city sanitation worker got into a fight with activists while cleaning red paint from the square.<br>         <strong>Source:</strong> <a href="https://nova.rs/vesti/drustvo/radnik-cistoce-napao-aktivistu-u-novom-sadu-vec-pocelo-ciscenje-crvene-boje-na-trgu-kod-gradske-kuce-video/" target="_blank">Nova</a>     </div>     </div>`)[0];
+                popup_2dbd3c27646b4d11f33c2e0db9542aa3.setContent(html_25ba7dda13ae4366549744aa7f10141d);
+            
+        
+
+        marker_a6b476aa367c970c674c876012ad25a1.bindPopup(popup_2dbd3c27646b4d11f33c2e0db9542aa3)
+        ;
+
+        
+    
+    
+                marker_a6b476aa367c970c674c876012ad25a1.setIcon(icon_5e5c531969adff714147bb1f2fda6b12);
+            
+    
+            var marker_89eef0411b0a7abb41c594f9bff84a17 = L.marker(
+                [44.81967291928397, 20.45631230929778],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_ce4f2693bde7f7479567de0b0cfabdbf = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fa-car",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5dde008824d1b599a7ac100a6e590ed1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7ccdb0c4a17bb7c054a113936ffff2ab = $(`<div id="html_7ccdb0c4a17bb7c054a113936ffff2ab" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  06/12/2024<br>         <strong>City:</strong> Belgrade<br>         <strong>Location:</strong> Corner of Studentski Trg and Uzun Mirkova Street<br>         <strong>Description:</strong> The Belgrade Philharmonic ensemble joined the “Stop, Serbia” action and on December 6 at 11:52 a.m. walked into the intersection of Studentski Trg and Uzun Mirkova Street. A vehicle drove through the intersection and injured four musicians.<br>         <strong>Source:</strong> <a href="https://www.rts.rs/lat/vesti/hronika/5597302/cetvoro-povredjenih-muzicara-beogradske-filharmonije-tokom-akcije-zastani-srbijo-.html" target="_blank">RTS</a>     </div>     </div>`)[0];
+                popup_5dde008824d1b599a7ac100a6e590ed1.setContent(html_7ccdb0c4a17bb7c054a113936ffff2ab);
+            
+        
+
+        marker_89eef0411b0a7abb41c594f9bff84a17.bindPopup(popup_5dde008824d1b599a7ac100a6e590ed1)
+        ;
+
+        
+    
+    
+                marker_89eef0411b0a7abb41c594f9bff84a17.setIcon(icon_ce4f2693bde7f7479567de0b0cfabdbf);
+            
+    
+            var marker_775d3872e6f5093ec6e7eacc9ce6eca6 = L.marker(
+                [44.747534298231265, 20.496225913816808],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_11ab065ddf6dcccd88f4da1e5e5e68dd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fa-car",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d213789e3093bd7c5b350c96b9b5303e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_262de858b1d4513c3e229472aedb171d = $(`<div id="html_262de858b1d4513c3e229472aedb171d" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  09/12/2024<br>         <strong>City:</strong> Belgrade<br>         <strong>Location:</strong> Faculty of Pharmacy<br>         <strong>Description:</strong> The driver of a Securitas company car hit students with the vehicle in front of the Faculty of Pharmacy. After being stopped, he spun the car in front of the blockade and chased the students.<br>         <strong>Source:</strong> <a href="https://www.instagram.com/reel/DDW0OPXtMif/?utm_source=ig_web_copy_link&amp;igsh=MzRlODBiNWFlZA==" target="_blank">Social media</a>     </div>     </div>`)[0];
+                popup_d213789e3093bd7c5b350c96b9b5303e.setContent(html_262de858b1d4513c3e229472aedb171d);
+            
+        
+
+        marker_775d3872e6f5093ec6e7eacc9ce6eca6.bindPopup(popup_d213789e3093bd7c5b350c96b9b5303e)
+        ;
+
+        
+    
+    
+                marker_775d3872e6f5093ec6e7eacc9ce6eca6.setIcon(icon_11ab065ddf6dcccd88f4da1e5e5e68dd);
+            
+    
+            var marker_7bb565ce636961aa77f81af5038695b3 = L.marker(
+                [44.804994015265855, 20.477978345689213],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_03d6a0383042f50165531c959f2c4d9e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "fa-user-friends",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5251e2ffe6898b188b877e802ebc4fdc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fdbb020c129e11a0f9a531d87a45f632 = $(`<div id="html_fdbb020c129e11a0f9a531d87a45f632" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  10/12/2024<br>         <strong>City:</strong> Belgrade<br>         <strong>Location:</strong> Vuk&#x27;s Monument<br>         <strong>Description:</strong> During a traffic blockade at Vuk’s Monument, a man exited his car and, after a verbal dispute, attacked one student.<br>         <strong>Source:</strong> <a href="https://www.rts.rs/lat/vesti/drustvo/5599375/studenti-blokada.html" target="_blank">RTS</a>     </div>     </div>`)[0];
+                popup_5251e2ffe6898b188b877e802ebc4fdc.setContent(html_fdbb020c129e11a0f9a531d87a45f632);
+            
+        
+
+        marker_7bb565ce636961aa77f81af5038695b3.bindPopup(popup_5251e2ffe6898b188b877e802ebc4fdc)
+        ;
+
+        
+    
+    
+                marker_7bb565ce636961aa77f81af5038695b3.setIcon(icon_03d6a0383042f50165531c959f2c4d9e);
+            
+    
+            var marker_bd9c559eb281fdd732c253b1ac97cf4f = L.marker(
+                [44.81438690536493, 20.473847723590627],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_a0f076c444e3ab9c771c05394f4df9eb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fa-car",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2e7e5052c6a2e6a8b6be57ed9bcb069a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d6d08bf851a9bc0384b4f25068399204 = $(`<div id="html_d6d08bf851a9bc0384b4f25068399204" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  11/12/2024<br>         <strong>City:</strong> Belgrade<br>         <strong>Location:</strong> Takovska Street, Faculty of Mining and Geology<br>         <strong>Description:</strong> A driver hit a blockade steward with his car and drove with him on the hood down Takovska Street.<br>         <strong>Source:</strong> <a href="https://www.instagram.com/reel/DDclIRaNBy4/?utm_source=ig_web_copy_link&amp;igsh=MzRlODBiNWFlZA==" target="_blank">Social media</a>     </div>     </div>`)[0];
+                popup_2e7e5052c6a2e6a8b6be57ed9bcb069a.setContent(html_d6d08bf851a9bc0384b4f25068399204);
+            
+        
+
+        marker_bd9c559eb281fdd732c253b1ac97cf4f.bindPopup(popup_2e7e5052c6a2e6a8b6be57ed9bcb069a)
+        ;
+
+        
+    
+    
+                marker_bd9c559eb281fdd732c253b1ac97cf4f.setIcon(icon_a0f076c444e3ab9c771c05394f4df9eb);
+            
+    
+            var marker_e3e6988fb7bab4824d757be842c90cb4 = L.marker(
+                [45.252268657214145, 19.855440954048518],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_f4836869f83f2a9bab99d6785a436a1b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fa-car",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_310fe71c86f3e71db2766c00f58a8c02 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f6127dce94862cf4f108a3364cb5c6b7 = $(`<div id="html_f6127dce94862cf4f108a3364cb5c6b7" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  03/01/2025<br>         <strong>City:</strong> Novi Sad<br>         <strong>Location:</strong> The Quay<br>         <strong>Description:</strong> He drove toward the citizens, then got out to argue with them, and eventually fled.<br>         <strong>Source:</strong> <a href="https://x.com/Igor_975/status/1875152697655283953" target="_blank">Social media</a>     </div>     </div>`)[0];
+                popup_310fe71c86f3e71db2766c00f58a8c02.setContent(html_f6127dce94862cf4f108a3364cb5c6b7);
+            
+        
+
+        marker_e3e6988fb7bab4824d757be842c90cb4.bindPopup(popup_310fe71c86f3e71db2766c00f58a8c02)
+        ;
+
+        
+    
+    
+                marker_e3e6988fb7bab4824d757be842c90cb4.setIcon(icon_f4836869f83f2a9bab99d6785a436a1b);
+            
+    
+            var marker_9decbc5aeb96af31f64427ffdc4cd146 = L.marker(
+                [44.811092970902855, 20.471441115305733],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_c1efd97fb499cd1e68c350f443005bf8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "fa-user-friends",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4d78390c1b7cf9298038b229b99f166f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_28b196d3e9a26c7ff5a15823a8b1380f = $(`<div id="html_28b196d3e9a26c7ff5a15823a8b1380f" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  03/01/2025<br>         <strong>City:</strong> Belgrade<br>         <strong>Location:</strong> RTS (Radio Television of Serbia)<br>         <strong>Description:</strong> At the RTS blockade, a man physically clashed with demonstrators.<br>         <strong>Source:</strong> <a href="https://x.com/atamanzagliblje/status/1875154437985190253" target="_blank">Social media</a>     </div>     </div>`)[0];
+                popup_4d78390c1b7cf9298038b229b99f166f.setContent(html_28b196d3e9a26c7ff5a15823a8b1380f);
+            
+        
+
+        marker_9decbc5aeb96af31f64427ffdc4cd146.bindPopup(popup_4d78390c1b7cf9298038b229b99f166f)
+        ;
+
+        
+    
+    
+                marker_9decbc5aeb96af31f64427ffdc4cd146.setIcon(icon_c1efd97fb499cd1e68c350f443005bf8);
+            
+    
+            var marker_8519336039414b429a277dfb6a264028 = L.marker(
+                [44.652087132533644, 20.19917248351124],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_130c06fe69d59189a775a5a927142355 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "fa-user-friends",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_309a20f9f30e329df41de665d1a99492 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_123272f784251f2a6de818781c18d4f9 = $(`<div id="html_123272f784251f2a6de818781c18d4f9" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  03/01/2025<br>         <strong>City:</strong> Belgrade<br>         <strong>Location:</strong> Obrenovac<br>         <strong>Description:</strong> After citizens blocked the road in Obrenovac, the driver exited a van and insisted on passing. Eventually, he physically attacked them.<br>         <strong>Source:</strong> <a href="https://www.instagram.com/moj_beo_grad_/reel/DEXONPhIjfn/" target="_blank">Social media</a>     </div>     </div>`)[0];
+                popup_309a20f9f30e329df41de665d1a99492.setContent(html_123272f784251f2a6de818781c18d4f9);
+            
+        
+
+        marker_8519336039414b429a277dfb6a264028.bindPopup(popup_309a20f9f30e329df41de665d1a99492)
+        ;
+
+        
+    
+    
+                marker_8519336039414b429a277dfb6a264028.setIcon(icon_130c06fe69d59189a775a5a927142355);
+            
+    
+            var marker_19ed533a0d8dcb99bfb9f51d51a2b5d2 = L.marker(
+                [45.252392401657225, 19.837747124174175],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_560f3252e3459f8d0090671a8b2633f2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fa-car",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0e9a2854249ee7e2bd9174281d2e3f3d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_15a962ac13cc8c00199a164332c9a37a = $(`<div id="html_15a962ac13cc8c00199a164332c9a37a" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  10/01/2025<br>         <strong>City:</strong> Novi Sad<br>         <strong>Location:</strong> Novi Sad<br>         <strong>Description:</strong> A driver drove through the protest participants.<br>         <strong>Source:</strong> <a href="https://x.com/MiranPogacar/status/1877694868329316548" target="_blank">Social media</a>     </div>     </div>`)[0];
+                popup_0e9a2854249ee7e2bd9174281d2e3f3d.setContent(html_15a962ac13cc8c00199a164332c9a37a);
+            
+        
+
+        marker_19ed533a0d8dcb99bfb9f51d51a2b5d2.bindPopup(popup_0e9a2854249ee7e2bd9174281d2e3f3d)
+        ;
+
+        
+    
+    
+                marker_19ed533a0d8dcb99bfb9f51d51a2b5d2.setIcon(icon_560f3252e3459f8d0090671a8b2633f2);
+            
+    
+            var marker_120f1d32f0d4105aac3e5638581ac1fd = L.marker(
+                [45.612606778793484, 19.528150346747015],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_8a092edf8288446fb828f6abf422f16c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fa-car",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_80a472deacdc39240d5f858b4b217937 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c909c8a4c57a1d14d3af88e14133c1cf = $(`<div id="html_c909c8a4c57a1d14d3af88e14133c1cf" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  10/01/2025<br>         <strong>City:</strong> Kula<br>         <strong>Location:</strong> Kula<br>         <strong>Description:</strong> A Citroën driver tried to push through protesters in Kula. After they surrounded his car, he backed off.<br>         <strong>Source:</strong> <a href="https://n1info.rs/vesti/video-incident-tokom-akcije-zastani-srbijo-u-kuli/" target="_blank">N1</a>     </div>     </div>`)[0];
+                popup_80a472deacdc39240d5f858b4b217937.setContent(html_c909c8a4c57a1d14d3af88e14133c1cf);
+            
+        
+
+        marker_120f1d32f0d4105aac3e5638581ac1fd.bindPopup(popup_80a472deacdc39240d5f858b4b217937)
+        ;
+
+        
+    
+    
+                marker_120f1d32f0d4105aac3e5638581ac1fd.setIcon(icon_8a092edf8288446fb828f6abf422f16c);
+            
+    
+            var marker_6583fbd368cd873d21154050dfe6cb1a = L.marker(
+                [45.25268329570499, 19.83749538130141],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_8dd2f909031f2ab2b775b288286c7111 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "fa-user-friends",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_330b7501e3f548c5bf89a34562936c40 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_56f7838e3e243e0325839c98cd7a450c = $(`<div id="html_56f7838e3e243e0325839c98cd7a450c" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  13/12/2024<br>         <strong>City:</strong> Novi Sad<br>         <strong>Location:</strong> Intersection of Futoška Street and Bulevar Oslobođenja<br>         <strong>Description:</strong> In Novi Sad, a Porsche driver crashed into a blockade and hit one person. Four men then exited the car and physically clashed with protest participants.<br>         <strong>Source:</strong> <a href="https://www.021.rs/story/Novi-Sad/Vesti/395906/VIDEO-Porseom-na-okupljene-kod-Futoske-pijace.html" target="_blank">Radio 021</a>     </div>     </div>`)[0];
+                popup_330b7501e3f548c5bf89a34562936c40.setContent(html_56f7838e3e243e0325839c98cd7a450c);
+            
+        
+
+        marker_6583fbd368cd873d21154050dfe6cb1a.bindPopup(popup_330b7501e3f548c5bf89a34562936c40)
+        ;
+
+        
+    
+    
+                marker_6583fbd368cd873d21154050dfe6cb1a.setIcon(icon_8dd2f909031f2ab2b775b288286c7111);
+            
+    
+            var marker_5b4d31d2c01b5e7b7164d792af104b56 = L.marker(
+                [44.816943363285304, 20.460371870816594],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_281cc7495bfed521f1a9df326671864c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "fa-hand-rock",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e27a18b63137150ef96ec0f6644fd185 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2fb81047d3eb3f9a5d219fbfe7f7e6af = $(`<div id="html_2fb81047d3eb3f9a5d219fbfe7f7e6af" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  14/01/2025<br>         <strong>City:</strong> Belgrade<br>         <strong>Location:</strong> Republic Square<br>         <strong>Description:</strong> At the Republic Square blockade, a driver argued with a protest steward, then hit a girl who was filming.<br>         <strong>Source:</strong> <a href="https://x.com/OliVeraCica/status/1879273234551746602" target="_blank">Social media</a>     </div>     </div>`)[0];
+                popup_e27a18b63137150ef96ec0f6644fd185.setContent(html_2fb81047d3eb3f9a5d219fbfe7f7e6af);
+            
+        
+
+        marker_5b4d31d2c01b5e7b7164d792af104b56.bindPopup(popup_e27a18b63137150ef96ec0f6644fd185)
+        ;
+
+        
+    
+    
+                marker_5b4d31d2c01b5e7b7164d792af104b56.setIcon(icon_281cc7495bfed521f1a9df326671864c);
+            
+    
+            var marker_397391a3c13147df8e1bc815af269fd7 = L.marker(
+                [44.80709538374382, 20.47152341948418],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_1a8819babf5e3148da36287498cb59d5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "fa-question-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c0f168c314d287684f7556d38967a122 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d0e502f71316a7cf34325769c7310b7b = $(`<div id="html_d0e502f71316a7cf34325769c7310b7b" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  14/01/2025<br>         <strong>City:</strong> Belgrade<br>         <strong>Location:</strong> Faculty of Law<br>         <strong>Description:</strong> Law students reported being pelted with glass and plastic bottles by several people; one female student was pushed down a staircase.<br>         <strong>Source:</strong> <a href="https://www.insajder.net/prenosimo/napadnuti-studenti-koji-su-tokom-noci-blokirali-pravni-fakultet" target="_blank">Insajder</a>     </div>     </div>`)[0];
+                popup_c0f168c314d287684f7556d38967a122.setContent(html_d0e502f71316a7cf34325769c7310b7b);
+            
+        
+
+        marker_397391a3c13147df8e1bc815af269fd7.bindPopup(popup_c0f168c314d287684f7556d38967a122)
+        ;
+
+        
+    
+    
+                marker_397391a3c13147df8e1bc815af269fd7.setIcon(icon_1a8819babf5e3148da36287498cb59d5);
+            
+    
+            var marker_8c975fd2cdcfcf3576e3709757c713be = L.marker(
+                [44.76363838328817, 20.428355960148636],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_8e2bd6db005e52db21b6a3dd4ae6d327 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fa-car",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bdc99faa43ec53adb500043270d831ee = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e881a68c4e0a274399fd6457f48efb35 = $(`<div id="html_e881a68c4e0a274399fd6457f48efb35" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  14/12/2024<br>         <strong>City:</strong> Belgrade<br>         <strong>Location:</strong> Faculty of Sport and Physical Education<br>         <strong>Description:</strong> A van tried to drive through citizens blocking the road, mounted the sidewalk, hit one person, and continued.<br>         <strong>Source:</strong> <a href="https://www.insajder.net/prenosimo/gradani-odali-pocast-poginulima-u-nesreci-u-novom-sadu-incident-ispred-visoke-hotelijerske-skole" target="_blank">Insajder</a>     </div>     </div>`)[0];
+                popup_bdc99faa43ec53adb500043270d831ee.setContent(html_e881a68c4e0a274399fd6457f48efb35);
+            
+        
+
+        marker_8c975fd2cdcfcf3576e3709757c713be.bindPopup(popup_bdc99faa43ec53adb500043270d831ee)
+        ;
+
+        
+    
+    
+                marker_8c975fd2cdcfcf3576e3709757c713be.setIcon(icon_8e2bd6db005e52db21b6a3dd4ae6d327);
+            
+    
+            var marker_6599d2339ae278a7b072ff458e9a1353 = L.marker(
+                [44.80679527650925, 20.47226568739329],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_9f4beea7603ff6b27a810356df2f2ee0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "fa-question-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f228c62c9c753743a8e518daebf43ff4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ff2a2bf8518a1ea611187d3712a30d32 = $(`<div id="html_ff2a2bf8518a1ea611187d3712a30d32" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  15/01/2025<br>         <strong>City:</strong> Belgrade<br>         <strong>Location:</strong> Faculty of Law<br>         <strong>Description:</strong> At a protest in front of the Law Faculty, a man threatened to pull a knife on students.<br>         <strong>Source:</strong> <a href="https://x.com/DragoslavicM/status/1879488448526213557" target="_blank">Social media</a>     </div>     </div>`)[0];
+                popup_f228c62c9c753743a8e518daebf43ff4.setContent(html_ff2a2bf8518a1ea611187d3712a30d32);
+            
+        
+
+        marker_6599d2339ae278a7b072ff458e9a1353.bindPopup(popup_f228c62c9c753743a8e518daebf43ff4)
+        ;
+
+        
+    
+    
+                marker_6599d2339ae278a7b072ff458e9a1353.setIcon(icon_9f4beea7603ff6b27a810356df2f2ee0);
+            
+    
+            var marker_9e8693e76887a8652ab3721b3f7186ad = L.marker(
+                [45.24564228954784, 19.850587021737695],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_9ac4a39f0039c3360194471ef4fdec50 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fa-car",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c3edf71f84e2a74673c660a27bffbac0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b46f917c8cf03a935934a2aa3a7c4c80 = $(`<div id="html_b46f917c8cf03a935934a2aa3a7c4c80" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  15/01/2025<br>         <strong>City:</strong> Novi Sad<br>         <strong>Location:</strong> Faculty of Technical Sciences<br>         <strong>Description:</strong> An ambulance with covered license plates drove through a gathered crowd.<br>         <strong>Source:</strong> <a href="https://www.danas.rs/vesti/drustvo/novosadska-hitna-pomoc-ne-zna-ko-je-prelepio-tablice-na-njihovom-vozilu/" target="_blank">Danas</a>     </div>     </div>`)[0];
+                popup_c3edf71f84e2a74673c660a27bffbac0.setContent(html_b46f917c8cf03a935934a2aa3a7c4c80);
+            
+        
+
+        marker_9e8693e76887a8652ab3721b3f7186ad.bindPopup(popup_c3edf71f84e2a74673c660a27bffbac0)
+        ;
+
+        
+    
+    
+                marker_9e8693e76887a8652ab3721b3f7186ad.setIcon(icon_9ac4a39f0039c3360194471ef4fdec50);
+            
+    
+            var marker_ec937616089b45b48fe0f57d412eaaa0 = L.marker(
+                [44.840705270403426, 20.412286287725614],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_28a0b41671ba6fa9203172e562d8e621 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fa-car",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_946e14a5b1af1c45fde35a8917a36786 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bf4f15b5c8b6493e314dbdb8cd42a147 = $(`<div id="html_bf4f15b5c8b6493e314dbdb8cd42a147" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  15/12/2024<br>         <strong>City:</strong> Belgrade<br>         <strong>Location:</strong> Zemun, Faculty of Agriculture<br>         <strong>Description:</strong> After citizens refused to clear the road, a driver accelerated and carried several protesters on the hood of his car.<br>         <strong>Source:</strong> <a href="https://nova.rs/vesti/hronika/napad-kod-poljoprivrednog-fakulteta-u-zemunu-kolima-pokosio-ucesnike-blokade/" target="_blank">Nova</a>     </div>     </div>`)[0];
+                popup_946e14a5b1af1c45fde35a8917a36786.setContent(html_bf4f15b5c8b6493e314dbdb8cd42a147);
+            
+        
+
+        marker_ec937616089b45b48fe0f57d412eaaa0.bindPopup(popup_946e14a5b1af1c45fde35a8917a36786)
+        ;
+
+        
+    
+    
+                marker_ec937616089b45b48fe0f57d412eaaa0.setIcon(icon_28a0b41671ba6fa9203172e562d8e621);
+            
+    
+            var marker_f4788b43cd2867367dc9a2e37dee8c74 = L.marker(
+                [44.80605801594085, 20.47878923228589],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_06729613ceeeae6f67956c2c46676d67 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fa-car",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4416a6c90e5402088bcfab064a6ac1dc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c95b0b2314e7caa50f65d023e49f0a01 = $(`<div id="html_c95b0b2314e7caa50f65d023e49f0a01" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  16/01/2025<br>         <strong>City:</strong> Belgrade<br>         <strong>Location:</strong> Ruzveltova Street<br>         <strong>Description:</strong> A driver hit a girl with his car and caused her serious physical injuries.<br>         <strong>Source:</strong> <a href="https://www.danas.rs/vesti/drustvo/devojka-povredjena-na-blokadi-u-ruzveltovoj-video/" target="_blank">Danas</a>     </div>     </div>`)[0];
+                popup_4416a6c90e5402088bcfab064a6ac1dc.setContent(html_c95b0b2314e7caa50f65d023e49f0a01);
+            
+        
+
+        marker_f4788b43cd2867367dc9a2e37dee8c74.bindPopup(popup_4416a6c90e5402088bcfab064a6ac1dc)
+        ;
+
+        
+    
+    
+                marker_f4788b43cd2867367dc9a2e37dee8c74.setIcon(icon_06729613ceeeae6f67956c2c46676d67);
+            
+    
+            var marker_3ebc645031443a513e10691c61577e00 = L.marker(
+                [45.25265259038275, 19.83695521631282],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_7065bf924f90b12d0e61f700aa3ec3b3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "fa-hand-rock",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fb15f111f7485d111a2a0d5122f47ce7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6ebc64dcdb6ec569ccf38e0c2d35dd6e = $(`<div id="html_6ebc64dcdb6ec569ccf38e0c2d35dd6e" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  16/01/2025<br>         <strong>City:</strong> Novi Sad<br>         <strong>Location:</strong> Futoška Market<br>         <strong>Description:</strong> An elderly woman hit and insulted students protesting at Futoška Market. After a scuffle, she was pushed away and fell.<br>         <strong>Source:</strong> <a href="https://autonomija.info/foto-video-studenti-i-gradjani-ispred-suda-u-novom-sadu-proslavili-pobedu-nad-upravom-pravnog-fakulteta-blokiraju-raskrsnicu-zbog-pokusaja-ubistva-studentkinje-u-beogradu/" target="_blank">Autonomija</a>     </div>     </div>`)[0];
+                popup_fb15f111f7485d111a2a0d5122f47ce7.setContent(html_6ebc64dcdb6ec569ccf38e0c2d35dd6e);
+            
+        
+
+        marker_3ebc645031443a513e10691c61577e00.bindPopup(popup_fb15f111f7485d111a2a0d5122f47ce7)
+        ;
+
+        
+    
+    
+                marker_3ebc645031443a513e10691c61577e00.setIcon(icon_7065bf924f90b12d0e61f700aa3ec3b3);
+            
+    
+            var marker_54d52e477c65652bfee7c1e8dcbffb83 = L.marker(
+                [44.79161166217556, 20.478569496977627],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_b35cedad7f1b006fc786834b033be0d1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fa-car",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5694f9d6d0dba63861b147f01fcb860e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4e0857b9b32dd0f4424484c30328bf25 = $(`<div id="html_4e0857b9b32dd0f4424484c30328bf25" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  16/12/2024<br>         <strong>City:</strong> Belgrade<br>         <strong>Location:</strong> Faculty of Security<br>         <strong>Description:</strong> A car drove toward a group of gathered students and professors during a blockade. After they moved, the driver passed.<br>         <strong>Source:</strong> <a href="https://www.danas.rs/vesti/drustvo/incident-ispred-fakulteta-bezbednosti-vozilo-naletelo-na-studente-i-profesore-tokom-blokade/" target="_blank">Danas</a>     </div>     </div>`)[0];
+                popup_5694f9d6d0dba63861b147f01fcb860e.setContent(html_4e0857b9b32dd0f4424484c30328bf25);
+            
+        
+
+        marker_54d52e477c65652bfee7c1e8dcbffb83.bindPopup(popup_5694f9d6d0dba63861b147f01fcb860e)
+        ;
+
+        
+    
+    
+                marker_54d52e477c65652bfee7c1e8dcbffb83.setIcon(icon_b35cedad7f1b006fc786834b033be0d1);
+            
+    
+            var marker_57f4c24390a290b243810b8b5458df0d = L.marker(
+                [45.25257539705731, 19.847095212195235],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_ec5280ef29e051f99eb18eb2d4f99a79 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "fa-hand-rock",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e81ee8822e42c0ca879331e61223c240 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f683b573204b91f8e2488eff48027b55 = $(`<div id="html_f683b573204b91f8e2488eff48027b55" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  17/12/2024<br>         <strong>City:</strong> Novi Sad<br>         <strong>Location:</strong> City Assembly<br>         <strong>Description:</strong> A man insulted demonstrators and hit the microphone held by an N1 TV journalist.<br>         <strong>Source:</strong> <a href="https://n1info.rs/vesti/ispred-skupstine-vojvodine-napadnuta-novinarka-n1/" target="_blank">N1</a>     </div>     </div>`)[0];
+                popup_e81ee8822e42c0ca879331e61223c240.setContent(html_f683b573204b91f8e2488eff48027b55);
+            
+        
+
+        marker_57f4c24390a290b243810b8b5458df0d.bindPopup(popup_e81ee8822e42c0ca879331e61223c240)
+        ;
+
+        
+    
+    
+                marker_57f4c24390a290b243810b8b5458df0d.setIcon(icon_ec5280ef29e051f99eb18eb2d4f99a79);
+            
+    
+            var marker_7303016d9959a4cc4b8cd5166871d91c = L.marker(
+                [45.20201622944861, 19.932884649777183],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_8e13488db4f57338167cd78625c55f94 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "fa-question-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d74cb00b0655d38c65669422df42737d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9280a4053359c9d52194d2800945cdf8 = $(`<div id="html_9280a4053359c9d52194d2800945cdf8" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  18/12/2024<br>         <strong>City:</strong> Sremski Karlovci<br>         <strong>Location:</strong> Karlovci Gymnasium<br>         <strong>Description:</strong> Hooded individuals threw firecrackers at protesting students.<br>         <strong>Source:</strong> <a href="https://www.021.rs/story/Novi-Sad/Vesti/396410/Novi-incident-u-Karlovackoj-gimnaziji-Petardama-na-djake.html" target="_blank">Radio 021</a>     </div>     </div>`)[0];
+                popup_d74cb00b0655d38c65669422df42737d.setContent(html_9280a4053359c9d52194d2800945cdf8);
+            
+        
+
+        marker_7303016d9959a4cc4b8cd5166871d91c.bindPopup(popup_d74cb00b0655d38c65669422df42737d)
+        ;
+
+        
+    
+    
+                marker_7303016d9959a4cc4b8cd5166871d91c.setIcon(icon_8e13488db4f57338167cd78625c55f94);
+            
+    
+            var marker_4bac0428a46b2a742a1d12d9ad0a730c = L.marker(
+                [44.74821348873277, 20.49606603285083],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_860b459a58b45c615f75c1b6019ab1a3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fa-car",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_103c6ac304ae989f0bd4caaa854facf7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_463360757d908f6de57c0cf9389c02eb = $(`<div id="html_463360757d908f6de57c0cf9389c02eb" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  19/12/2024<br>         <strong>City:</strong> Belgrade<br>         <strong>Location:</strong> Faculty of Pharmacy<br>         <strong>Description:</strong> A driver ran over a university professor’s foot while she was at a protest.<br>         <strong>Source:</strong> <a href="https://www.instagram.com/reel/DDwh0n3tWZn/?utm_source=ig_web_copy_link&amp;igsh=MzRlODBiNWFlZA==" target="_blank">Social media</a>     </div>     </div>`)[0];
+                popup_103c6ac304ae989f0bd4caaa854facf7.setContent(html_463360757d908f6de57c0cf9389c02eb);
+            
+        
+
+        marker_4bac0428a46b2a742a1d12d9ad0a730c.bindPopup(popup_103c6ac304ae989f0bd4caaa854facf7)
+        ;
+
+        
+    
+    
+                marker_4bac0428a46b2a742a1d12d9ad0a730c.setIcon(icon_860b459a58b45c615f75c1b6019ab1a3);
+            
+    
+            var marker_cf6d60d926c6dee74f0f00d68d068f2b = L.marker(
+                [44.81507356075345, 20.40902590362107],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_c68eb2aba07b686b643043197b7a6ba8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "fa-user-friends",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0b40f471345e4c1db0b04cc0c2c88969 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7b94a78d78a66532d05c7716604c192c = $(`<div id="html_7b94a78d78a66532d05c7716604c192c" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  22/11/2024<br>         <strong>City:</strong> Belgrade<br>         <strong>Location:</strong> Faculty of Dramatic Arts<br>         <strong>Description:</strong> Just minutes after citizens, students, and FDU professors blocked the street, several drivers exited their cars and clashed with the crowd. They insulted and physically attacked participants.<br>         <strong>Source:</strong> <a href="https://www.danas.rs/vesti/politika/incident-u-bulevaru-umetnosti-tokom-protesta-zastani-srbijo-15-minuta-za-15-zivota/" target="_blank">Danas</a>     </div>     </div>`)[0];
+                popup_0b40f471345e4c1db0b04cc0c2c88969.setContent(html_7b94a78d78a66532d05c7716604c192c);
+            
+        
+
+        marker_cf6d60d926c6dee74f0f00d68d068f2b.bindPopup(popup_0b40f471345e4c1db0b04cc0c2c88969)
+        ;
+
+        
+    
+    
+                marker_cf6d60d926c6dee74f0f00d68d068f2b.setIcon(icon_c68eb2aba07b686b643043197b7a6ba8);
+            
+    
+            var marker_47d1812d593590096f4315e84065f5bf = L.marker(
+                [44.811329399533854, 20.470902506149915],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_cd3088862c5b05f0777f872b2ae34646 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "fa-question-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_233cd9a127bd1b114225c50961728ee6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b3ee6453de8405b652f5a79e038fe3e3 = $(`<div id="html_b3ee6453de8405b652f5a79e038fe3e3" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  22/11/2024<br>         <strong>City:</strong> Belgrade<br>         <strong>Location:</strong> RTS<br>         <strong>Description:</strong> A man exited his car and grabbed umbrellas and papers with names of victims from the railway station collapse from protesting citizens.<br>         <strong>Source:</strong> <a href="https://balkans-dr.aljazeera.net/videos/2024/11/22/akcija-zastani-srbijo-u-vise-gradova-incident-u-beogradu" target="_blank">Al Jazeera Balkans</a>     </div>     </div>`)[0];
+                popup_233cd9a127bd1b114225c50961728ee6.setContent(html_b3ee6453de8405b652f5a79e038fe3e3);
+            
+        
+
+        marker_47d1812d593590096f4315e84065f5bf.bindPopup(popup_233cd9a127bd1b114225c50961728ee6)
+        ;
+
+        
+    
+    
+                marker_47d1812d593590096f4315e84065f5bf.setIcon(icon_cd3088862c5b05f0777f872b2ae34646);
+            
+    
+            var marker_05af6cecbe2bed6ef1c4d3e2841caa23 = L.marker(
+                [44.81118430213707, 20.46589613817451],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_ffe3e312c192ef6cd26602dff3af601a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fa-car",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f83b387ec50c3c6371a45e4464224af2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a777bba2c50d064a49007fa496afdefa = $(`<div id="html_a777bba2c50d064a49007fa496afdefa" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  22/12/2024<br>         <strong>City:</strong> Belgrade<br>         <strong>Location:</strong> Boulevard near the National Assembly<br>         <strong>Description:</strong> A taxi driver hit a young man who was blocking his path.<br>         <strong>Source:</strong> <a href="https://www.euronews.rs/srbija/aktuelno/150543/uhapsen-taksista-koji-je-udario-pesaka-nakon-protesta-na-slaviji/vest" target="_blank">Euronews</a>     </div>     </div>`)[0];
+                popup_f83b387ec50c3c6371a45e4464224af2.setContent(html_a777bba2c50d064a49007fa496afdefa);
+            
+        
+
+        marker_05af6cecbe2bed6ef1c4d3e2841caa23.bindPopup(popup_f83b387ec50c3c6371a45e4464224af2)
+        ;
+
+        
+    
+    
+                marker_05af6cecbe2bed6ef1c4d3e2841caa23.setIcon(icon_ffe3e312c192ef6cd26602dff3af601a);
+            
+    
+            var marker_3fab5a4fb9a4232ff9f99a0c2f2fa474 = L.marker(
+                [44.755171660454614, 19.693208178504285],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_381dab00f8c6d1987802b47ce0598749 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fa-car",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_17845cfed8a083f57d2c31b61806d007 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3b08897540c2e515e664511f0537801a = $(`<div id="html_3b08897540c2e515e664511f0537801a" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  23/12/2024<br>         <strong>City:</strong> Šabac<br>         <strong>Location:</strong> Šabac Gymnasium<br>         <strong>Description:</strong> A taxi driver drove into students blocking traffic near Šabac Gymnasium. He carried one student on the hood.<br>         <strong>Source:</strong> <a href="https://www.021.rs/story/Info/Srbija/396940/Profesorka-koja-je-skocila-na-haubu-taksiste-da-spasi-djaka-tokom-Zastani-Srbijo-opisala-incident.html" target="_blank">Radio 021</a>     </div>     </div>`)[0];
+                popup_17845cfed8a083f57d2c31b61806d007.setContent(html_3b08897540c2e515e664511f0537801a);
+            
+        
+
+        marker_3fab5a4fb9a4232ff9f99a0c2f2fa474.bindPopup(popup_17845cfed8a083f57d2c31b61806d007)
+        ;
+
+        
+    
+    
+                marker_3fab5a4fb9a4232ff9f99a0c2f2fa474.setIcon(icon_381dab00f8c6d1987802b47ce0598749);
+            
+    
+            var marker_38fc96fed679f1ca499b676b5fa87358 = L.marker(
+                [45.252605759531505, 19.837507892396417],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_a7652b7c0776061861e2eb533072d1b9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "fa-question-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_63f970d41913e109e06f2ace53c0cd15 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f922dbd29d6ce99c3cadbe7d2471f05c = $(`<div id="html_f922dbd29d6ce99c3cadbe7d2471f05c" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  24/11/2024<br>         <strong>City:</strong> Novi Sad<br>         <strong>Location:</strong> Futoška Market<br>         <strong>Description:</strong> A woman threw eggs at people participating in a protest walk in Novi Sad.<br>         <strong>Source:</strong> <a href="https://nova.rs/vesti/politika/pogledajte-incident-na-protestu-u-novom-sadu-zena-gadjala-jajima-ucesnike-setnje-video/" target="_blank">Nova</a>     </div>     </div>`)[0];
+                popup_63f970d41913e109e06f2ace53c0cd15.setContent(html_f922dbd29d6ce99c3cadbe7d2471f05c);
+            
+        
+
+        marker_38fc96fed679f1ca499b676b5fa87358.bindPopup(popup_63f970d41913e109e06f2ace53c0cd15)
+        ;
+
+        
+    
+    
+                marker_38fc96fed679f1ca499b676b5fa87358.setIcon(icon_a7652b7c0776061861e2eb533072d1b9);
+            
+    
+            var marker_d7499ed6dc074f36f0349282b381107c = L.marker(
+                [44.81174181078817, 20.45420543754162],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_45d47305664312b101f57e8e19e92780 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fa-car",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ca7343610821dac2263bd331b71119c1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ef6aa84f9122660d95169ca9827428ff = $(`<div id="html_ef6aa84f9122660d95169ca9827428ff" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  27/12/2024<br>         <strong>City:</strong> Belgrade<br>         <strong>Location:</strong> Faculty of Economics<br>         <strong>Description:</strong> A woman broke through the blockade with her car, hit a student, and carried him on the hood.<br>         <strong>Source:</strong> <a href="https://nova.rs/vesti/drustvo/automobilom-probila-blokadu-nosila-studenta-na-haubi-nasilje-kod-ekonomskog-fakulteta/" target="_blank">Nova</a>     </div>     </div>`)[0];
+                popup_ca7343610821dac2263bd331b71119c1.setContent(html_ef6aa84f9122660d95169ca9827428ff);
+            
+        
+
+        marker_d7499ed6dc074f36f0349282b381107c.bindPopup(popup_ca7343610821dac2263bd331b71119c1)
+        ;
+
+        
+    
+    
+                marker_d7499ed6dc074f36f0349282b381107c.setIcon(icon_45d47305664312b101f57e8e19e92780);
+            
+    
+            var marker_fd923ef52d7d8d9a57e8e24b7d707518 = L.marker(
+                [43.581062096877275, 20.22933829184577],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_e4b23fd0a960a13f371bbda8eacc65e5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fa-car",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d79a91406fa49e6e1437e4c238671d74 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8fcf0b073cba7984636627a3920d7e64 = $(`<div id="html_8fcf0b073cba7984636627a3920d7e64" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  27/12/2024<br>         <strong>City:</strong> Ivanjica<br>         <strong>Location:</strong> Ivanjica<br>         <strong>Description:</strong> A driver sped into people blocking the street, then stopped and got out to argue. Plainclothes police escorted him back to his car.<br>         <strong>Source:</strong> <a href="https://infoliga.rs/2024/12/27/danasnji-protest-zastani-srbijo-u-ivanjici-obelezio-je-incident-video/" target="_blank">Infoliga</a>     </div>     </div>`)[0];
+                popup_d79a91406fa49e6e1437e4c238671d74.setContent(html_8fcf0b073cba7984636627a3920d7e64);
+            
+        
+
+        marker_fd923ef52d7d8d9a57e8e24b7d707518.bindPopup(popup_d79a91406fa49e6e1437e4c238671d74)
+        ;
+
+        
+    
+    
+                marker_fd923ef52d7d8d9a57e8e24b7d707518.setIcon(icon_e4b23fd0a960a13f371bbda8eacc65e5);
+            
+    
+            var marker_163d0f2704d074c535124cb3ca90eca8 = L.marker(
+                [44.61993260608507, 21.183670007688896],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_29ab5c25ef775cc815502bacd83227f6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fa-car",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_929c2b569350bb224985be1674521417 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1eab76f338b1c5f7b62870fffcc6dd82 = $(`<div id="html_1eab76f338b1c5f7b62870fffcc6dd82" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  29/11/2024<br>         <strong>City:</strong> Požarevac<br>         <strong>Location:</strong> Požarevac<br>         <strong>Description:</strong> A driver hit a protester who was crossing the pedestrian crosswalk as part of the blockade.<br>         <strong>Source:</strong> <a href="https://www.danas.rs/vesti/politika/video-automobil-pokupio-na-haubi-coveka-tokom-blokade-u-pozarevcu/" target="_blank">Danas</a>     </div>     </div>`)[0];
+                popup_929c2b569350bb224985be1674521417.setContent(html_1eab76f338b1c5f7b62870fffcc6dd82);
+            
+        
+
+        marker_163d0f2704d074c535124cb3ca90eca8.bindPopup(popup_929c2b569350bb224985be1674521417)
+        ;
+
+        
+    
+    
+                marker_163d0f2704d074c535124cb3ca90eca8.setIcon(icon_29ab5c25ef775cc815502bacd83227f6);
+            
+    
+            var marker_a89c6266cc3dee4b7fd048bf601a4e28 = L.marker(
+                [44.79591483045403, 20.499085419392834],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_a9c290b98ca116d93473ccb1b679d41e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fa-car",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_daf5990e040b989d595f2080dce02dc6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fefcbfdf49413ecf159e074a1be7998b = $(`<div id="html_fefcbfdf49413ecf159e074a1be7998b" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  29/11/2024<br>         <strong>City:</strong> Belgrade<br>         <strong>Location:</strong> Bulevar Kralja Aleksandra near the intersection with Batutova Street<br>         <strong>Description:</strong> Students of the Sixth Belgrade Gymnasium blocked traffic on Bulevar Kralja Aleksandra. At one point, a military truck forcefully broke through the blockade.<br>         <strong>Source:</strong> <a href="https://www.danas.rs/vesti/politika/vojni-kamion-protesti-ucenici/" target="_blank">Danas</a>     </div>     </div>`)[0];
+                popup_daf5990e040b989d595f2080dce02dc6.setContent(html_fefcbfdf49413ecf159e074a1be7998b);
+            
+        
+
+        marker_a89c6266cc3dee4b7fd048bf601a4e28.bindPopup(popup_daf5990e040b989d595f2080dce02dc6)
+        ;
+
+        
+    
+    
+                marker_a89c6266cc3dee4b7fd048bf601a4e28.setIcon(icon_a9c290b98ca116d93473ccb1b679d41e);
+            
+    
+            var marker_3a3ba635de32f4fded20177489627e68 = L.marker(
+                [44.53067514210068, 19.222156381605487],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_a7ca60f354c3a167fd8a7804e42f8863 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "fa-tools",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bc9da6f4874f25907f8f32a19b21bb59 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_86130a21afa6efb12f583cee9e21a001 = $(`<div id="html_86130a21afa6efb12f583cee9e21a001" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  29/11/2024<br>         <strong>City:</strong> Loznica<br>         <strong>Location:</strong> Loznica<br>         <strong>Description:</strong> A man swung a baton at one of the female participants of the gathering.<br>         <strong>Source:</strong> <a href="https://www.danas.rs/vesti/politika/incident-na-protestu-zastani-srbijo-u-loznici/" target="_blank">Danas</a>     </div>     </div>`)[0];
+                popup_bc9da6f4874f25907f8f32a19b21bb59.setContent(html_86130a21afa6efb12f583cee9e21a001);
+            
+        
+
+        marker_3a3ba635de32f4fded20177489627e68.bindPopup(popup_bc9da6f4874f25907f8f32a19b21bb59)
+        ;
+
+        
+    
+    
+                marker_3a3ba635de32f4fded20177489627e68.setIcon(icon_a7ca60f354c3a167fd8a7804e42f8863);
+            
+    
+            var marker_026376ca1a8e56245bfb93bf2e9f47d7 = L.marker(
+                [44.81523595722415, 20.475154576179882],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_59f84d496573cdbf7242d53c847d20d1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fa-car",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_eafac332202086ae3eb96ecf8afc45dc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b167ce7408438edfa8a0e25e1e2c889c = $(`<div id="html_b167ce7408438edfa8a0e25e1e2c889c" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  29/11/2024<br>         <strong>City:</strong> Belgrade<br>         <strong>Location:</strong> Takovska Street<br>         <strong>Description:</strong> A driver with Slovak plates sped toward the crowd, then exited the vehicle and argued with blockade participants.<br>         <strong>Source:</strong> <a href="https://www.danas.rs/vesti/politika/protest-zastani-srbijo-incident-takovska/" target="_blank">Danas</a>     </div>     </div>`)[0];
+                popup_eafac332202086ae3eb96ecf8afc45dc.setContent(html_b167ce7408438edfa8a0e25e1e2c889c);
+            
+        
+
+        marker_026376ca1a8e56245bfb93bf2e9f47d7.bindPopup(popup_eafac332202086ae3eb96ecf8afc45dc)
+        ;
+
+        
+    
+    
+                marker_026376ca1a8e56245bfb93bf2e9f47d7.setIcon(icon_59f84d496573cdbf7242d53c847d20d1);
+            
+    
+            var marker_9b4eb0d6b2ee3887329d187933d2c40c = L.marker(
+                [45.772695453922765, 19.113553291372728],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_e82140731dec666e56a80f2a116d210c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "fa-question-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7d9f267d9b8f2b88fb778075643f020a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d01af7b66ac85e7da70929fd7d8eabc9 = $(`<div id="html_d01af7b66ac85e7da70929fd7d8eabc9" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  29/11/2024<br>         <strong>City:</strong> Sombor<br>         <strong>Location:</strong> St. Trinity Square and Zmaj Jovina Street<br>         <strong>Description:</strong> Drivers exited their vehicles and tore up banners with names of victims, grabbing them from the hands of protesters.<br>         <strong>Source:</strong> <a href="https://www.soinfo.org/vesti/vest/32246/incident-na-protestu-u-somboru/" target="_blank">SO info</a>     </div>     </div>`)[0];
+                popup_7d9f267d9b8f2b88fb778075643f020a.setContent(html_d01af7b66ac85e7da70929fd7d8eabc9);
+            
+        
+
+        marker_9b4eb0d6b2ee3887329d187933d2c40c.bindPopup(popup_7d9f267d9b8f2b88fb778075643f020a)
+        ;
+
+        
+    
+    
+                marker_9b4eb0d6b2ee3887329d187933d2c40c.setIcon(icon_e82140731dec666e56a80f2a116d210c);
+            
+    
+            var marker_91a2a3472d30ecb258012151fe7dce58 = L.marker(
+                [45.25672737724418, 19.842658883415698],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_4ac2c7cce2d5c7a2eab14b3a52e0633b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fa-car",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_aa7c0302742512d7d57ef1d7de1e7be2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c36a8a94ae5b0aa6232f1824f4cddc7a = $(`<div id="html_c36a8a94ae5b0aa6232f1824f4cddc7a" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  29/11/2024<br>         <strong>City:</strong> Novi Sad<br>         <strong>Location:</strong> Svetina Gymnasium, Njegoševa Street<br>         <strong>Description:</strong> A taxi driver drove into students from Svetina Gymnasium in Novi Sad. Afterwards, his rear car window was smashed. The taxi company later announced he was fired.<br>         <strong>Source:</strong> <a href="https://www.021.rs/story/Novi-Sad/Vesti/394671/Taksista-iskljucen-iz-udruzenja-zbog-incidenta-ispred-Svetine-gimnazije-tokom-akcije-Zastani-Srbijo.html" target="_blank">Radio 021</a>     </div>     </div>`)[0];
+                popup_aa7c0302742512d7d57ef1d7de1e7be2.setContent(html_c36a8a94ae5b0aa6232f1824f4cddc7a);
+            
+        
+
+        marker_91a2a3472d30ecb258012151fe7dce58.bindPopup(popup_aa7c0302742512d7d57ef1d7de1e7be2)
+        ;
+
+        
+    
+    
+                marker_91a2a3472d30ecb258012151fe7dce58.setIcon(icon_4ac2c7cce2d5c7a2eab14b3a52e0633b);
+            
+    
+            var marker_cb572e58c1a23fbdac1d2a374cbd4acf = L.marker(
+                [45.252859793313064, 19.824694878648813],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_5795a67578ddfb81662fc0c782f70ef4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "fa-question-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_86e08e12a8fa93527421b76cb1e0897a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ffee4d7272ee27a91b23d4377fe3b70f = $(`<div id="html_ffee4d7272ee27a91b23d4377fe3b70f" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  17/01/2025<br>         <strong>City:</strong> Novi Sad<br>         <strong>Location:</strong> Faculty of Medicine<br>         <strong>Description:</strong> An elderly man attacked a blockade steward with a knife in front of the Medical Faculty in Novi Sad. Students disarmed him and prevented further conflict.<br>         <strong>Source:</strong> <a href="https://n1info.rs/vesti/studenti-medicinskog-nakon-napada-nozem-tokom-blokade-ovo-je-mogao-da-bude-tragican-slucaj/" target="_blank">N1</a>     </div>     </div>`)[0];
+                popup_86e08e12a8fa93527421b76cb1e0897a.setContent(html_ffee4d7272ee27a91b23d4377fe3b70f);
+            
+        
+
+        marker_cb572e58c1a23fbdac1d2a374cbd4acf.bindPopup(popup_86e08e12a8fa93527421b76cb1e0897a)
+        ;
+
+        
+    
+    
+                marker_cb572e58c1a23fbdac1d2a374cbd4acf.setIcon(icon_5795a67578ddfb81662fc0c782f70ef4);
+            
+    
+            var marker_11a4364fe4385110497320bece1883f4 = L.marker(
+                [44.79841621152028, 20.46537039777628],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_7ff74bc5ebfbbbdaf3271e6cd6aeb901 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fa-car",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7bb5b77bfa66d8f8b9b9d2d471d43788 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b3586e2a4bcca997b4a953ddfd7a0afb = $(`<div id="html_b3586e2a4bcca997b4a953ddfd7a0afb" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  30/12/2024<br>         <strong>City:</strong> Belgrade<br>         <strong>Location:</strong> Bulevar Oslobođenja near Karađorđev Park<br>         <strong>Description:</strong> A car attempted to break through the blockade.<br>         <strong>Source:</strong> <a href="https://nova.rs/vesti/drustvo/pogledajte-kako-je-doslo-do-incidenta-na-blokadi-kod-karadjordjevog-parka-u-beogradu/" target="_blank">Nova</a>     </div>     </div>`)[0];
+                popup_7bb5b77bfa66d8f8b9b9d2d471d43788.setContent(html_b3586e2a4bcca997b4a953ddfd7a0afb);
+            
+        
+
+        marker_11a4364fe4385110497320bece1883f4.bindPopup(popup_7bb5b77bfa66d8f8b9b9d2d471d43788)
+        ;
+
+        
+    
+    
+                marker_11a4364fe4385110497320bece1883f4.setIcon(icon_7ff74bc5ebfbbbdaf3271e6cd6aeb901);
+            
+    
+            var marker_3bc46db21f21bffa8b17b508dc60f751 = L.marker(
+                [45.25817890647393, 19.84347441251784],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_7fa4646614f6ac4d9a130eccd84db4c6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "fa-question-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d048eafcae1074841f4340ae71ad8c64 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a0b02c57275c930c1ce61935354026d1 = $(`<div id="html_a0b02c57275c930c1ce61935354026d1" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  31/12/2024<br>         <strong>City:</strong> Novi Sad<br>         <strong>Location:</strong> Academy of Arts<br>         <strong>Description:</strong> An unknown person threw a glass bottle at the Academy window, breaking it.<br>         <strong>Source:</strong> <a href="https://www.mojnovisad.com/vesti/studenti-akademije-doziveli-incident-razbili-su-im-prozor-flasom-id66697.html" target="_blank">Moj Novi Sad</a>     </div>     </div>`)[0];
+                popup_d048eafcae1074841f4340ae71ad8c64.setContent(html_a0b02c57275c930c1ce61935354026d1);
+            
+        
+
+        marker_3bc46db21f21bffa8b17b508dc60f751.bindPopup(popup_d048eafcae1074841f4340ae71ad8c64)
+        ;
+
+        
+    
+    
+                marker_3bc46db21f21bffa8b17b508dc60f751.setIcon(icon_7fa4646614f6ac4d9a130eccd84db4c6);
+            
+    
+            var marker_45973b6c2b7aece317ecc4e506bb8227 = L.marker(
+                [44.8073081048892, 20.47170049689481],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_291c2d67bb2dfe94bf5b3292fa4fb164 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "fa-tools",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bff3fa76edaaf9a24772df6ed603a9f7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_92d854a34862a2853199ba957b79e8f3 = $(`<div id="html_92d854a34862a2853199ba957b79e8f3" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  17/01/2025<br>         <strong>City:</strong> Belgrade<br>         <strong>Location:</strong> Faculty of Law<br>         <strong>Description:</strong> During a blockade at the Law Faculty, a man exited his car and attacked demonstrators with a metal rod, then tried to run them over.<br>         <strong>Source:</strong> <a href="https://vreme.com/razno/autom-na-blokadu-kod-pravnog-vozac-palicom-krenuo-na-studente/" target="_blank">Vreme</a>     </div>     </div>`)[0];
+                popup_bff3fa76edaaf9a24772df6ed603a9f7.setContent(html_92d854a34862a2853199ba957b79e8f3);
+            
+        
+
+        marker_45973b6c2b7aece317ecc4e506bb8227.bindPopup(popup_bff3fa76edaaf9a24772df6ed603a9f7)
+        ;
+
+        
+    
+    
+                marker_45973b6c2b7aece317ecc4e506bb8227.setIcon(icon_291c2d67bb2dfe94bf5b3292fa4fb164);
+            
+    
+            var marker_8e982017336defb4d87b8783d4126ff0 = L.marker(
+                [44.78375972215547, 20.493112986278906],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_8a7f8b55a89fe5b315e1acac2a8dc31c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fa-car",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_16cb51084feb1d6eb6b8c791f173649f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8b2ad5c534e2b6a7c3a3cbc1070b1c48 = $(`<div id="html_8b2ad5c534e2b6a7c3a3cbc1070b1c48" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  17/01/2025<br>         <strong>City:</strong> Belgrade<br>         <strong>Location:</strong> Ustanička Street, Šumice neighborhood<br>         <strong>Description:</strong> A driver sped toward students blocking the road. He stopped, got out, and attacked them. The students responded and confronted him, as seen in video footage.<br>         <strong>Source:</strong> <a href="https://www.blic.rs/vesti/politika/muskarac-udario-srednjoskolca-na-dusanovcu-tokom-blokade-saobracaja-ucenici-krenuli/szjdby4" target="_blank">Blic</a>     </div>     </div>`)[0];
+                popup_16cb51084feb1d6eb6b8c791f173649f.setContent(html_8b2ad5c534e2b6a7c3a3cbc1070b1c48);
+            
+        
+
+        marker_8e982017336defb4d87b8783d4126ff0.bindPopup(popup_16cb51084feb1d6eb6b8c791f173649f)
+        ;
+
+        
+    
+    
+                marker_8e982017336defb4d87b8783d4126ff0.setIcon(icon_8a7f8b55a89fe5b315e1acac2a8dc31c);
+            
+    
+            var marker_d7d8090db57a38f8204b34981eafaffb = L.marker(
+                [44.80680052470475, 20.471301725285628],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_16634a9f96d1497690ea133d5b662129 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "fa-tools",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ff00486d0c5fb9c7ad080aac59b72a7f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_65628e44321d746d911e1f28e0f8fa52 = $(`<div id="html_65628e44321d746d911e1f28e0f8fa52" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  17/01/2025<br>         <strong>City:</strong> Belgrade<br>         <strong>Location:</strong> Faculty of Law<br>         <strong>Description:</strong> A driver attempted to break through a blockade, injuring one person. Eyewitnesses said he pulled out a metal bat and tried to confront the crowd.<br>         <strong>Source:</strong> <a href="https://nova.rs/vesti/drustvo/u-incidentu-kod-pravnog-lakse-povredjen-ucesnik-blokade/" target="_blank">Nova</a>     </div>     </div>`)[0];
+                popup_ff00486d0c5fb9c7ad080aac59b72a7f.setContent(html_65628e44321d746d911e1f28e0f8fa52);
+            
+        
+
+        marker_d7d8090db57a38f8204b34981eafaffb.bindPopup(popup_ff00486d0c5fb9c7ad080aac59b72a7f)
+        ;
+
+        
+    
+    
+                marker_d7d8090db57a38f8204b34981eafaffb.setIcon(icon_16634a9f96d1497690ea133d5b662129);
+            
+    
+            var marker_758e4b686076ccb4fe7c751cf7a86e4f = L.marker(
+                [44.80317942891448, 20.387869076968904],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_18b7be3b18369d4cc4adfb5f40f9fba3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "fa-tools",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_84f3e032affcb3be1ef6ac0fa3a1472d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4529c779d8e55e81e932ba4c1f0b6567 = $(`<div id="html_4529c779d8e55e81e932ba4c1f0b6567" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  18/01/2025<br>         <strong>City:</strong> Belgrade<br>         <strong>Location:</strong> Corner of Jurija Gagarina and Gandijeva Streets<br>         <strong>Description:</strong> During a blockade in New Belgrade, two men provoked protesters. One pulled a metal rod from the car and went after the people blocking the road.<br>         <strong>Source:</strong> <a href="https://nova.rs/vesti/hronika/incident-na-blokadi-na-novom-beogradu-dvojica-muskaraca-provocirali-gradjane-jedan-izvadio-stanglu-i-krenuo-na-okupljene/" target="_blank">Nova</a>     </div>     </div>`)[0];
+                popup_84f3e032affcb3be1ef6ac0fa3a1472d.setContent(html_4529c779d8e55e81e932ba4c1f0b6567);
+            
+        
+
+        marker_758e4b686076ccb4fe7c751cf7a86e4f.bindPopup(popup_84f3e032affcb3be1ef6ac0fa3a1472d)
+        ;
+
+        
+    
+    
+                marker_758e4b686076ccb4fe7c751cf7a86e4f.setIcon(icon_18b7be3b18369d4cc4adfb5f40f9fba3);
+            
+    
+            var marker_e26eae23e28f4fb5bfbfb633421f2d2f = L.marker(
+                [43.89082041698356, 20.34902220088749],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_9b7856a6b6062da012133e6d2e1b8546 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "fa-hand-rock",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c74f79aeee529863d6510eb0774d504f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9f5d1921763542ea0079f5421e1809e0 = $(`<div id="html_9f5d1921763542ea0079f5421e1809e0" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  19/01/2025<br>         <strong>City:</strong> Čačak<br>         <strong>Location:</strong> Čačak<br>         <strong>Description:</strong> Protesters stopped in front of SNS party offices. Several city officials and party members emerged with flags. A scuffle broke out, followed by egg-throwing at the building, some hitting SNS members.<br>         <strong>Source:</strong> <a href="https://www.021.rs/story/Info/Srbija/399288/Hiljade-ljudi-na-protestu-u-Cacku-manji-incident-ispred-prostorija-SNS.html" target="_blank">Radio 021</a>     </div>     </div>`)[0];
+                popup_c74f79aeee529863d6510eb0774d504f.setContent(html_9f5d1921763542ea0079f5421e1809e0);
+            
+        
+
+        marker_e26eae23e28f4fb5bfbfb633421f2d2f.bindPopup(popup_c74f79aeee529863d6510eb0774d504f)
+        ;
+
+        
+    
+    
+                marker_e26eae23e28f4fb5bfbfb633421f2d2f.setIcon(icon_9b7856a6b6062da012133e6d2e1b8546);
+            
+    
+            var marker_226944bebf15ab8a6fca6b4913f0b280 = L.marker(
+                [45.245670384964484, 19.85138368019665],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_0d61c3504f60367647f61fac8e06d973 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "fa-question-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2e4dc6478dd54300f4963e0e495b6871 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e1346abde15ff4f1144c52dc1b6a1ec7 = $(`<div id="html_e1346abde15ff4f1144c52dc1b6a1ec7" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  16/01/2025<br>         <strong>City:</strong> Novi Sad<br>         <strong>Location:</strong> Faculty of Technical Sciences<br>         <strong>Description:</strong> The Ministry of Interior reported that a young man insulted students in front of the Technical Faculty and threw a scalpel and lighter at them.<br>         <strong>Source:</strong> <a href="https://n1info.rs/vesti/uhapsen-osumnjiceni-za-vredjanje-i-napad-na-studente-ispred-ftn-u-novom-sadu/" target="_blank">N1</a>     </div>     </div>`)[0];
+                popup_2e4dc6478dd54300f4963e0e495b6871.setContent(html_e1346abde15ff4f1144c52dc1b6a1ec7);
+            
+        
+
+        marker_226944bebf15ab8a6fca6b4913f0b280.bindPopup(popup_2e4dc6478dd54300f4963e0e495b6871)
+        ;
+
+        
+    
+    
+                marker_226944bebf15ab8a6fca6b4913f0b280.setIcon(icon_0d61c3504f60367647f61fac8e06d973);
+            
+    
+            var marker_b9f9de4983516bbeb34ea395de5f176a = L.marker(
+                [44.76834289028655, 20.480088769821318],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_61f257a9c2511e0ac948a19152e69543 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "fa-question-circle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5fa39a84b6d779c224272d43a81eed75 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a18a5474abc066665b604c1eb7c8324b = $(`<div id="html_a18a5474abc066665b604c1eb7c8324b" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  20/01/2025<br>         <strong>City:</strong> Belgrade<br>         <strong>Location:</strong> College of Electrical Engineering and Computing<br>         <strong>Description:</strong> A young man painted offensive graffiti on the wall of the School of Electrical Engineering. Security detained him with the help of students. He bit one student on the hand, hit him in the head, and punched another in the stomach.<br>         <strong>Source:</strong> <a href="https://nova.rs/vesti/hronika/uhapsen-nasilnik-koji-je-napao-studente-i-portira-na-vozdovcu-crtao-uvredljive-grafite-jednog-mladica-ujeo-za-ruku/" target="_blank">Nova</a>     </div>     </div>`)[0];
+                popup_5fa39a84b6d779c224272d43a81eed75.setContent(html_a18a5474abc066665b604c1eb7c8324b);
+            
+        
+
+        marker_b9f9de4983516bbeb34ea395de5f176a.bindPopup(popup_5fa39a84b6d779c224272d43a81eed75)
+        ;
+
+        
+    
+    
+                marker_b9f9de4983516bbeb34ea395de5f176a.setIcon(icon_61f257a9c2511e0ac948a19152e69543);
+            
+    
+            var marker_0ca46bb01dc278eadeaae072764518f7 = L.marker(
+                [44.82744957062614, 20.40824382305964],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_1d8618f494502232e85c830de1c1988e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "fa-tools",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fb5e0e45bf1fe40de09a852823b74444 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a2d70e9b3779d59167786811cff46f5a = $(`<div id="html_a2d70e9b3779d59167786811cff46f5a" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  22/01/2025<br>         <strong>City:</strong> Belgrade<br>         <strong>Location:</strong> Oton Župančič Street<br>         <strong>Description:</strong> A middle-aged man jumped out of his ground-floor apartment window and attacked returning students and professors from the Graphic Media School with a stick. He later returned inside and threatened them with a knife.<br>         <strong>Source:</strong> <a href="https://nova.rs/vesti/hronika/muskarac-iskocio-kroz-prozor-stana-pa-motkom-krenuo-na-ucenike-na-novom-beogradu-video/" target="_blank">Nova</a>     </div>     </div>`)[0];
+                popup_fb5e0e45bf1fe40de09a852823b74444.setContent(html_a2d70e9b3779d59167786811cff46f5a);
+            
+        
+
+        marker_0ca46bb01dc278eadeaae072764518f7.bindPopup(popup_fb5e0e45bf1fe40de09a852823b74444)
+        ;
+
+        
+    
+    
+                marker_0ca46bb01dc278eadeaae072764518f7.setIcon(icon_1d8618f494502232e85c830de1c1988e);
+            
+    
+            var marker_43a6924968fa9de14a2496e88ea5f612 = L.marker(
+                [44.78454381880743, 20.486126629029755],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_ff1b3fe2bb91b897807ec57281475ab0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fa-car",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_dfa419e22ea6ed226d186b58bf2ca0c9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_05f62ac94abc3baea995d1d68088d2d3 = $(`<div id="html_05f62ac94abc3baea995d1d68088d2d3" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  23/01/2025<br>         <strong>City:</strong> Belgrade<br>         <strong>Location:</strong> Corner of Ustanička and Grčića Milenka Streets<br>         <strong>Description:</strong> A driver ran into students from the Eighth Belgrade Gymnasium who were blocking the street.<br>         <strong>Source:</strong> <a href="https://n1info.rs/vesti/naleteo-automobilom-na-djake-na-blokadi-vredjao-ekipu-n1-na-sedistu-vidjen-kacket-bia/" target="_blank">N1</a>     </div>     </div>`)[0];
+                popup_dfa419e22ea6ed226d186b58bf2ca0c9.setContent(html_05f62ac94abc3baea995d1d68088d2d3);
+            
+        
+
+        marker_43a6924968fa9de14a2496e88ea5f612.bindPopup(popup_dfa419e22ea6ed226d186b58bf2ca0c9)
+        ;
+
+        
+    
+    
+                marker_43a6924968fa9de14a2496e88ea5f612.setIcon(icon_ff1b3fe2bb91b897807ec57281475ab0);
+            
+    
+            var marker_bb2b35f3cf0afb1a360911ecf9ff0efc = L.marker(
+                [44.80389644136634, 20.39713566151576],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_79d69794a025cc928a9983fc317a1476 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "fa-car",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b4be96571307d884c4ca8a13d5a35460 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_48c21fc06fcfec7f3878e62baa2acd72 = $(`<div id="html_48c21fc06fcfec7f3878e62baa2acd72" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  24/01/2025<br>         <strong>City:</strong> Belgrade<br>         <strong>Location:</strong> Jurija Gagarina Street<br>         <strong>Description:</strong> A girl drove her car into demonstrators, knocking down two students. One female student was seriously injured.<br>         <strong>Source:</strong> <a href="https://nova.rs/vesti/hronika/uznemirujuce-ovo-je-trenutak-kada-je-devojka-automobilom-udarila-studentkinju-i-nosila-je-na-haubi/" target="_blank">Nova</a>     </div>     </div>`)[0];
+                popup_b4be96571307d884c4ca8a13d5a35460.setContent(html_48c21fc06fcfec7f3878e62baa2acd72);
+            
+        
+
+        marker_bb2b35f3cf0afb1a360911ecf9ff0efc.bindPopup(popup_b4be96571307d884c4ca8a13d5a35460)
+        ;
+
+        
+    
+    
+                marker_bb2b35f3cf0afb1a360911ecf9ff0efc.setIcon(icon_79d69794a025cc928a9983fc317a1476);
+            
+    
+            var marker_1e9eee6f19143eca22fa387a9f4f9b5b = L.marker(
+                [45.246066035749365, 19.852702802683492],
+                {
+}
+            ).addTo(marker_cluster_18955fe282a3bf7d904386c0f213341f);
+        
+    
+            var icon_90ad8317dfab0181fd4fcb6bd2ee3f28 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "fa-hand-rock",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_50edb7952e98105f41eae984bb723eff = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4ceac54410cbd75a646c585a4d4c5fcf = $(`<div id="html_4ceac54410cbd75a646c585a4d4c5fcf" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px;">         <strong>Date:</strong>  26/01/2025<br>         <strong>City:</strong> Novi Sad<br>         <strong>Location:</strong> Faculty of Law<br>         <strong>Description:</strong> A masked man attempted to enter the Law Faculty in Novi Sad and physically attacked a student. Fellow students intervened to stop him.<br>         <strong>Source:</strong> <a href="https://n1info.rs/vesti/muskarac-sa-fantomkom-na-licu-napao-studenta-u-novom-sadu/" target="_blank">N1</a>     </div>     </div>`)[0];
+                popup_50edb7952e98105f41eae984bb723eff.setContent(html_4ceac54410cbd75a646c585a4d4c5fcf);
+            
+        
+
+        marker_1e9eee6f19143eca22fa387a9f4f9b5b.bindPopup(popup_50edb7952e98105f41eae984bb723eff)
+        ;
+
+        
+    
+    
+                marker_1e9eee6f19143eca22fa387a9f4f9b5b.setIcon(icon_90ad8317dfab0181fd4fcb6bd2ee3f28);
+            
+    
+            marker_cluster_18955fe282a3bf7d904386c0f213341f.addTo(map_2169d5b104902e9df458a56b8e6f534b);
+        
+</script>
+</html>
